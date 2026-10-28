@@ -29,7 +29,7 @@
       <p class="music-kicker">AQP FEST SOUND</p>
       <p class="music-title">REGGAETON MODE</p>
       <p class="music-caption">Súbele al ambiente</p>
-      <audio controls preload="metadata">
+      <audio id="aqpMusic" controls preload="metadata">
         <source src="./THEUZZO%20-%20MEGA%20WATCHING%20ME%20-%20THEUZZO.mp3" type="audio/mpeg">
         Tu navegador no puede reproducir audio HTML5.
       </audio>
@@ -40,7 +40,7 @@
 </section>
 </main>
 <script>
-function showEvents(e){if(e)e.preventDefault();document.getElementById('inicio').classList.remove('active');document.getElementById('eventos').classList.add('active');history.replaceState(null,'','#eventos');}
+function showEvents(e){if(e)e.preventDefault();document.getElementById('inicio').classList.remove('active');document.getElementById('eventos').classList.add('active');history.replaceState(null,'','#eventos');const music=document.getElementById('aqpMusic');if(music){music.volume=0.7;music.play().catch(()=>{const caption=document.querySelector('.music-caption');if(caption)caption.textContent='Toca reproducir para escuchar la música';});}}
 function showHome(){document.getElementById('eventos').classList.remove('active');document.getElementById('inicio').classList.add('active');history.replaceState(null,'',location.pathname);}
 if(location.hash==='#eventos')showEvents();
 </script>
